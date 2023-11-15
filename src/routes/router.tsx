@@ -8,9 +8,9 @@ const router = createBrowserRouter([
     element: <CompendiumScreen />,
   },
   {
-      path: "/persona-details/:name",
-      element: <PersonaDetailsScreen />
-  }
+    path: "/persona-details/:name",
+    element: <PersonaDetailsScreen />,
+  },
 ]);
 
 export default router;

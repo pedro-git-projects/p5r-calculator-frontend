@@ -1,167 +1,313 @@
 import { Link } from "react-router-dom";
 import Persona from "../types/Persona";
+import bless from "../assets/bless.png";
+import curse from "../assets/curse.png";
+import elec from "../assets/elec.png";
+import fire from "../assets/fire.png";
+import gun from "../assets/gun.png";
+import ice from "../assets/ice.png";
+import wind from "../assets/wind.png";
+import nuke from "../assets/nuke.png";
+import phys from "../assets/phys.png";
+import psy from "../assets/psy.png";
+import almighty from "../assets/almighty.png";
+import ailment from "../assets/ailment.png";
+import healing from "../assets/healing.png";
+import InheritanceUnion from "../types/InheritanceUnion.ts";
+import ResistsUnion from "../types/ResistsUnion.ts";
 
 interface PersonaTableProps {
   personas: Persona[];
 }
 
+const getImageForInheritance = (el: InheritanceUnion) => {
+  switch (el) {
+    case "curse":
+      return curse;
+    case "bless":
+      return bless;
+    case "psy":
+      return psy;
+    case "elec":
+      return elec;
+    case "phys":
+      return phys;
+    case "ice":
+      return ice;
+    case "nuke":
+      return nuke;
+    case "wind":
+      return wind;
+    case "fire":
+      return fire;
+    case "almighty":
+      return almighty;
+    case "ailment":
+      return ailment;
+    case "healing":
+      return healing;
+    case "none":
+      return null;
+  }
+};
+
+const getTextForResistance = (el: ResistsUnion) => {
+  switch (el) {
+    case "-":
+      return "";
+    case "d":
+      return <div className="text-green-500">ab</div>;
+    case "s":
+      return <div className="text-blue-300">rs</div>;
+    case "r":
+      return <div className="text-emerald-300">rp</div>;
+    case "w":
+      return <div className="text-orange-700">wk</div>;
+    case "n":
+      return <div className="text-amber-50">nu</div>;
+  }
+};
+
 const PersonaTable: React.FC<PersonaTableProps> = ({ personas }) => {
   return (
     <div>
-      <table className="min-w-full divide-y divide-gray-200">
-        <thead className="bg-gray-50">
+      <table className="min-w-full divide-y divide-gray-300 bg-gray-800 text-white">
+        <thead className="bg-gray-600">
           <tr>
-            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+            <th className="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider">
               Arcana
             </th>
-            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+            <th className="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider">
               Name
             </th>
-            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-              Level
+            <th className="px-6 py-3 text-left text-xs font-medium  uppercase tracking-wider">
+              Lvl
             </th>
-            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+            <th className="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider">
               Inherits
             </th>
-            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+            <th className="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider">
               Trait
             </th>
 
-            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-              Phys Resist
+            <th className="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider">
+              <img
+                src={phys}
+                alt="physical resist"
+                style={{ width: "24px", height: "24px" }}
+              />
             </th>
-            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-              Gun Resist
+            <th className="px-6 py-3 tracking-wider">
+              <img
+                src={gun}
+                alt="gun resist"
+                style={{ width: "24px", height: "24px" }}
+              />
             </th>
-            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-              Fire Resist
+            <th className="px-6 py-3 tracking-wider">
+              <img
+                src={fire}
+                alt="fire resist"
+                style={{ width: "24px", height: "24px" }}
+              />
             </th>
-            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-              Ice Resist
+            <th className="px-6 py-3 tracking-wider">
+              <img
+                src={ice}
+                alt="ice resist"
+                style={{ width: "24px", height: "24px" }}
+              />
             </th>
-            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-              Electric Resist
+            <th className="px-6 py-3 tracking-wider">
+              <img
+                src={elec}
+                alt="electrical resist"
+                style={{ width: "24px", height: "24px" }}
+              />
             </th>
-            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-              Wind Resist
+            <th className="px-6 py-3 tracking-wider">
+              <img
+                src={wind}
+                alt="wind resist"
+                style={{ width: "24px", height: "24px" }}
+              />
             </th>
-            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-              Psychic Resis
+            <th className="px-6 py-3 tracking-wider">
+              <img
+                src={psy}
+                alt="psy resist"
+                style={{ width: "24px", height: "24px" }}
+              />
             </th>
-            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-              Nuclear Resist
+            <th className="px-6 py-3 tracking-wider">
+              <img
+                src={nuke}
+                alt="nuke resist"
+                style={{ width: "24px", height: "24px" }}
+              />
             </th>
-            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-              Bless Resist
+            <th className="px-6 py-3 tracking-wider">
+              <img
+                src={bless}
+                alt="bless resist"
+                style={{ width: "24px", height: "24px" }}
+              />
             </th>
-            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-              Curse Resist
+            <th className="px-6 py-3 tracking-wider">
+              <img
+                src={curse}
+                alt="curse resist"
+                style={{ width: "24px", height: "24px" }}
+              />
             </th>
-
-            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-              Strength
+            <th className="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider">
+              St
             </th>
-            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-              Magic
+            <th className="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider">
+              Ma
             </th>
-            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-              Endurance
+            <th className="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider">
+              En
             </th>
-            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-              Agility
+            <th className="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider">
+              Ag
             </th>
-            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-              Luck
+            <th className="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider">
+              Lu
             </th>
-            {/* Add more stat columns as needed */}
           </tr>
         </thead>
-        <tbody className="bg-white divide-y divide-gray-200">
+        <tbody className="bg-white divide-y divide-gray-300">
           {personas.map(persona => (
             <tr key={persona.id}>
-              <td className="px-6 py-4 whitespace-nowrap">
-                <div className="text-sm font-medium text-gray-900">
+              <td className="px-6 py-4 whitespace-nowrap bg-gray-900">
+                <div className="text-sm font-medium text-gray-200">
                   {persona.arcana}
                 </div>
               </td>
-              <td className="px-6 py-4 whitespace-nowrap">
+              <td className="px-6 py-4 whitespace-nowrap bg-gray-900">
                 <Link to={`/persona-details/${persona.name}`}>
-                <div className="text-sm text-gray-900">{persona.name}</div>
+                  <div className="text-sm text-gray-200">{persona.name}</div>
                 </Link>
               </td>
-              <td className="px-6 py-4 whitespace-nowrap">
-                <div className="text-sm text-gray-900">{persona.lvl}</div>
-              </td>
-              <td className="px-6 py-4 whitespace-nowrap">
-                <div className="text-sm text-gray-900">{persona.inherits}</div>
-              </td>
-              <td className="px-6 py-4 whitespace-nowrap">
-                <div className="text-sm text-gray-900">{persona.trait}</div>
-              </td>
-              <td className="px-6 py-4 whitespace-nowrap">
-                <div className="text-sm text-gray-900">
-                  {persona.resists.phys}
+              <td className="px-6 py-4 whitespace-nowrap bg-gray-900">
+                <div className="text-sm text-gray-900 text-gray-200">
+                  {persona.lvl}
                 </div>
               </td>
-              <td className="px-6 py-4 whitespace-nowrap">
-                <div className="text-sm text-gray-900">
-                  {persona.resists.gun}
+              <td className="px-6 py-4 whitespace-nowrap bg-gray-900">
+                <div className="text-sm text-gray-200">
+                  {
+                    //@ts-ignore
+                    getImageForInheritance(persona.inherits) !== null && (
+                      <img
+                        // @ts-ignore
+                        src={getImageForInheritance(persona.inherits)}
+                        // @ts-ignore
+                        alt={persona.inherits}
+                        style={{ width: "18px", height: "18px" }}
+                      />
+                    )
+                  }
                 </div>
               </td>
-              <td className="px-6 py-4 whitespace-nowrap">
-                <div className="text-sm text-gray-900">
-                  {persona.resists.fire}
+              <td className="px-6 py-4 whitespace-nowrap bg-gray-900">
+                <div className="text-sm text-gray-200">{persona.trait}</div>
+              </td>
+              <td className="px-6 py-4 whitespace-nowrap bg-gray-900">
+                <div className="text-sm text-gray-200">
+                  {
+                    // @ts-ignore
+                    getTextForResistance(persona.resists.phys)
+                  }
                 </div>
               </td>
-              <td className="px-6 py-4 whitespace-nowrap">
-                <div className="text-sm text-gray-900">
-                  {persona.resists.ice}
+              <td className="px-6 py-4 whitespace-nowrap bg-gray-900">
+                <div className="text-sm text-gray-200">
+                  {
+                    // @ts-ignore
+                    getTextForResistance(persona.resists.gun)
+                  }
                 </div>
               </td>
-              <td className="px-6 py-4 whitespace-nowrap">
-                <div className="text-sm text-gray-900">
-                  {persona.resists.elec}
+              <td className="px-6 py-4 whitespace-nowrap bg-gray-900">
+                <div className="text-sm text-gray-200">
+                  {
+                    // @ts-ignore
+                    getTextForResistance(persona.resists.fire)
+                  }
                 </div>
               </td>
-              <td className="px-6 py-4 whitespace-nowrap">
-                <div className="text-sm text-gray-900">
-                  {persona.resists.wind}
+              <td className="px-6 py-4 whitespace-nowrap bg-gray-900">
+                <div className="text-sm text-gray-200">
+                  {
+                    // @ts-ignore
+                    getTextForResistance(persona.resists.ice)
+                  }
                 </div>
               </td>
-              <td className="px-6 py-4 whitespace-nowrap">
-                <div className="text-sm text-gray-900">
-                  {persona.resists.pys}
+              <td className="px-6 py-4 whitespace-nowrap bg-gray-900">
+                <div className="text-sm text-gray-200">
+                  {
+                    // @ts-ignore
+                    getTextForResistance(persona.resists.elec)
+                  }
                 </div>
               </td>
-              <td className="px-6 py-4 whitespace-nowrap">
-                <div className="text-sm text-gray-900">
-                  {persona.resists.nuke}
+              <td className="px-6 py-4 whitespace-nowrap bg-gray-900">
+                <div className="text-sm text-gray-200">
+                  {
+                    // @ts-ignore
+                    getTextForResistance(persona.resists.wind)
+                  }
                 </div>
               </td>
-              <td className="px-6 py-4 whitespace-nowrap">
-                <div className="text-sm text-gray-900">
-                  {persona.resists.bless}
+              <td className="px-6 py-4 whitespace-nowrap bg-gray-900">
+                <div className="text-sm text-gray-200">
+                  {
+                    // @ts-ignore
+                    getTextForResistance(persona.resists.pys)
+                  }
                 </div>
               </td>
-              <td className="px-6 py-4 whitespace-nowrap">
-                <div className="text-sm text-gray-900">
-                  {persona.resists.curse}
+              <td className="px-6 py-4 whitespace-nowrap bg-gray-900">
+                <div className="text-sm text-gray-200">
+                  {
+                    // @ts-ignore
+                    getTextForResistance(persona.resists.nuke)
+                  }
                 </div>
               </td>
-              <td className="px-6 py-4 whitespace-nowrap">
-                <div className="text-sm text-gray-900">{persona.stats.st}</div>
+              <td className="px-6 py-4 whitespace-nowrap bg-gray-900">
+                <div className="text-sm text-gray-200">
+                  {
+                    // @ts-ignore
+                    getTextForResistance(persona.resists.bless)
+                  }
+                </div>
               </td>
-              <td className="px-6 py-4 whitespace-nowrap">
-                <div className="text-sm text-gray-900">{persona.stats.ma}</div>
+              <td className="px-6 py-4 whitespace-nowrap bg-gray-900">
+                <div className="text-sm text-gray-200">
+                  {
+                    // @ts-ignore
+                    getTextForResistance(persona.resists.curse)
+                  }
+                </div>
               </td>
-              <td className="px-6 py-4 whitespace-nowrap">
-                <div className="text-sm text-gray-900">{persona.stats.en}</div>
+              <td className="px-6 py-4 whitespace-nowrap bg-gray-900">
+                <div className="text-sm text-gray-200">{persona.stats.st}</div>
               </td>
-              <td className="px-6 py-4 whitespace-nowrap">
-                <div className="text-sm text-gray-900">{persona.stats.ag}</div>
+              <td className="px-6 py-4 whitespace-nowrap bg-gray-900">
+                <div className="text-sm text-gray-200">{persona.stats.ma}</div>
               </td>
-              <td className="px-6 py-4 whitespace-nowrap">
-                <div className="text-sm text-gray-900">{persona.stats.lu}</div>
+              <td className="px-6 py-4 whitespace-nowrap bg-gray-900">
+                <div className="text-sm text-gray-200">{persona.stats.en}</div>
+              </td>
+              <td className="px-6 py-4 whitespace-nowrap bg-gray-900">
+                <div className="text-sm text-gray-200">{persona.stats.ag}</div>
+              </td>
+              <td className="px-6 py-4 whitespace-nowrap bg-gray-900">
+                <div className="text-sm text-gray-200">{persona.stats.lu}</div>
               </td>
             </tr>
           ))}
