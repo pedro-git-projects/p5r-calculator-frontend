@@ -16,7 +16,7 @@ import healing from "../assets/healing.png";
 import InheritanceUnion from "../types/InheritanceUnion.ts";
 import ResistsUnion from "../types/ResistsUnion.ts";
 import "../styles/fonts.css";
-import "../styles/liiink.css";
+import "../styles/table.css";
 
 interface PersonaTableProps {
   personas: Persona[];
@@ -190,24 +190,10 @@ const PersonaTable: React.FC<PersonaTableProps> = ({ personas }) => {
                   {persona.arcana}
                 </div>
               </td>
-
               <td className="frame px-6 py-4 whitespace-nowrap bg-[#0d0d0d]">
                 <Link to={`/persona-details/${persona.name}`}>
-                  <a className="menu1">{persona.name}</a>
+                  <div className="text-sm text-gray-200">{persona.name}</div>
                 </Link>
-
-                {
-                  // <ul>
-                  // <Link to={`/persona-details/${persona.name}`}>
-                  //   <li className="menu1">{persona.name}</li>
-                  // </Link>
-                  // </ul>
-                  //  <ul className="backlayer">
-                  //  <Link to={`/persona-details/${persona.name}`}>
-                  //    <li className="menu1">{persona.name}</li>
-                  //  </Link>
-                  //  </ul>
-                }
               </td>
               <td className="px-6 py-4 whitespace-nowrap bg-[#0d0d0d]">
                 <div className="text-sm text-gray-200">{persona.lvl}</div>
