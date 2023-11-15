@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import Persona from "../types/Persona";
 
 interface PersonaTableProps {
@@ -84,7 +85,9 @@ const PersonaTable: React.FC<PersonaTableProps> = ({ personas }) => {
                 </div>
               </td>
               <td className="px-6 py-4 whitespace-nowrap">
+                <Link to={`/persona-details/${persona.name}`}>
                 <div className="text-sm text-gray-900">{persona.name}</div>
+                </Link>
               </td>
               <td className="px-6 py-4 whitespace-nowrap">
                 <div className="text-sm text-gray-900">{persona.lvl}</div>
