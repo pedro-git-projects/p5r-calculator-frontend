@@ -1,0 +1,33 @@
+.frame a {
+  color: white;
+  cursor: pointer;
+}
+
+.frame a:hover {
+  -webkit-text-stroke: 3px white;
+  color: black;
+  background-color: red;
+  -webkit-clip-path: polygon(10% 10%, 89% 6%, 94% 91%, 10% 90%);
+  clip-path: polygon(10% 10%, 89% 6%, 94% 91%, 10% 90%);
+  animation: panbg .5s linear infinite;
+  -webkit-animation: panbg .5s linear infinite;
+  -webkit-transition: all .2s;
+  transition: all .2s;
+   -webkit-text-stroke: 2px skyblue;
+}
+
+@keyframes panbg {
+  0% {
+    -webkit-clip-path: polygon(10% 10%, 89% 6%, 94% 91%, 10% 90%);
+    clip-path: polygon(20% 20%, 89% 6%, 94% 91%, 10% 90%);
+  }
+  50% {
+    -webkit-clip-path: polygon(5% 5%, 93% 15%, 82% 87%, 2% 76%);
+    clip-path: polygon(5% 5%, 93% 15%, 82% 87%, 2% 76%);
+  }
+  100% {
+    -webkit-clip-path: polygon(10% 10%, 89% 6%, 94% 91%, 10% 90%);
+    clip-path: polygon(20% 20%, 89% 6%, 94% 91%, 10% 90%);
+  }
+}
+

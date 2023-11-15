@@ -15,6 +15,8 @@ import ailment from "../assets/ailment.png";
 import healing from "../assets/healing.png";
 import InheritanceUnion from "../types/InheritanceUnion.ts";
 import ResistsUnion from "../types/ResistsUnion.ts";
+import "../styles/fonts.css";
+import "../styles/liiink.css";
 
 interface PersonaTableProps {
   personas: Persona[];
@@ -71,8 +73,11 @@ const getTextForResistance = (el: ResistsUnion) => {
 const PersonaTable: React.FC<PersonaTableProps> = ({ personas }) => {
   return (
     <div>
-      <table className="min-w-full divide-y divide-gray-300 bg-gray-800 text-white">
-        <thead className="bg-gray-600">
+      <table className="min-w-full divide-y divide-[#f2e852] bg-gray-800 text-white">
+        <thead
+          className="bg-[#732424]"
+          style={{ position: "sticky", top: 0, zIndex: 1 }}
+        >
           <tr>
             <th className="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider">
               Arcana
@@ -177,25 +182,37 @@ const PersonaTable: React.FC<PersonaTableProps> = ({ personas }) => {
             </th>
           </tr>
         </thead>
-        <tbody className="bg-white divide-y divide-gray-300">
+        <tbody className="bg-white">
           {personas.map(persona => (
             <tr key={persona.id}>
-              <td className="px-6 py-4 whitespace-nowrap bg-gray-900">
+              <td className="px-6 py-4 whitespace-nowrap bg-[#0d0d0d]">
                 <div className="text-sm font-medium text-gray-200">
                   {persona.arcana}
                 </div>
               </td>
-              <td className="px-6 py-4 whitespace-nowrap bg-gray-900">
+
+              <td className="frame px-6 py-4 whitespace-nowrap bg-[#0d0d0d]">
                 <Link to={`/persona-details/${persona.name}`}>
-                  <div className="text-sm text-gray-200">{persona.name}</div>
+                  <a className="menu1">{persona.name}</a>
                 </Link>
+
+                {
+                  // <ul>
+                  // <Link to={`/persona-details/${persona.name}`}>
+                  //   <li className="menu1">{persona.name}</li>
+                  // </Link>
+                  // </ul>
+                  //  <ul className="backlayer">
+                  //  <Link to={`/persona-details/${persona.name}`}>
+                  //    <li className="menu1">{persona.name}</li>
+                  //  </Link>
+                  //  </ul>
+                }
               </td>
-              <td className="px-6 py-4 whitespace-nowrap bg-gray-900">
-                <div className="text-sm text-gray-900 text-gray-200">
-                  {persona.lvl}
-                </div>
+              <td className="px-6 py-4 whitespace-nowrap bg-[#0d0d0d]">
+                <div className="text-sm text-gray-200">{persona.lvl}</div>
               </td>
-              <td className="px-6 py-4 whitespace-nowrap bg-gray-900">
+              <td className="px-6 py-4 whitespace-nowrap bg-[#0d0d0d]">
                 <div className="text-sm text-gray-200">
                   {
                     //@ts-ignore
@@ -211,10 +228,10 @@ const PersonaTable: React.FC<PersonaTableProps> = ({ personas }) => {
                   }
                 </div>
               </td>
-              <td className="px-6 py-4 whitespace-nowrap bg-gray-900">
+              <td className="px-6 py-4 whitespace-nowrap bg-[#0d0d0d]">
                 <div className="text-sm text-gray-200">{persona.trait}</div>
               </td>
-              <td className="px-6 py-4 whitespace-nowrap bg-gray-900">
+              <td className="px-6 py-4 whitespace-nowrap bg-[#0d0d0d]">
                 <div className="text-sm text-gray-200">
                   {
                     // @ts-ignore
@@ -222,7 +239,7 @@ const PersonaTable: React.FC<PersonaTableProps> = ({ personas }) => {
                   }
                 </div>
               </td>
-              <td className="px-6 py-4 whitespace-nowrap bg-gray-900">
+              <td className="px-6 py-4 whitespace-nowrap bg-[#0d0d0d]">
                 <div className="text-sm text-gray-200">
                   {
                     // @ts-ignore
@@ -230,7 +247,7 @@ const PersonaTable: React.FC<PersonaTableProps> = ({ personas }) => {
                   }
                 </div>
               </td>
-              <td className="px-6 py-4 whitespace-nowrap bg-gray-900">
+              <td className="px-6 py-4 whitespace-nowrap bg-[#0d0d0d]">
                 <div className="text-sm text-gray-200">
                   {
                     // @ts-ignore
@@ -238,7 +255,7 @@ const PersonaTable: React.FC<PersonaTableProps> = ({ personas }) => {
                   }
                 </div>
               </td>
-              <td className="px-6 py-4 whitespace-nowrap bg-gray-900">
+              <td className="px-6 py-4 whitespace-nowrap bg-[#0d0d0d]">
                 <div className="text-sm text-gray-200">
                   {
                     // @ts-ignore
@@ -246,7 +263,7 @@ const PersonaTable: React.FC<PersonaTableProps> = ({ personas }) => {
                   }
                 </div>
               </td>
-              <td className="px-6 py-4 whitespace-nowrap bg-gray-900">
+              <td className="px-6 py-4 whitespace-nowrap bg-[#0d0d0d]">
                 <div className="text-sm text-gray-200">
                   {
                     // @ts-ignore
@@ -254,7 +271,7 @@ const PersonaTable: React.FC<PersonaTableProps> = ({ personas }) => {
                   }
                 </div>
               </td>
-              <td className="px-6 py-4 whitespace-nowrap bg-gray-900">
+              <td className="px-6 py-4 whitespace-nowrap bg-[#0d0d0d]">
                 <div className="text-sm text-gray-200">
                   {
                     // @ts-ignore
@@ -262,7 +279,7 @@ const PersonaTable: React.FC<PersonaTableProps> = ({ personas }) => {
                   }
                 </div>
               </td>
-              <td className="px-6 py-4 whitespace-nowrap bg-gray-900">
+              <td className="px-6 py-4 whitespace-nowrap bg-[#0d0d0d]">
                 <div className="text-sm text-gray-200">
                   {
                     // @ts-ignore
@@ -270,7 +287,7 @@ const PersonaTable: React.FC<PersonaTableProps> = ({ personas }) => {
                   }
                 </div>
               </td>
-              <td className="px-6 py-4 whitespace-nowrap bg-gray-900">
+              <td className="px-6 py-4 whitespace-nowrap bg-[#0d0d0d]">
                 <div className="text-sm text-gray-200">
                   {
                     // @ts-ignore
@@ -278,7 +295,7 @@ const PersonaTable: React.FC<PersonaTableProps> = ({ personas }) => {
                   }
                 </div>
               </td>
-              <td className="px-6 py-4 whitespace-nowrap bg-gray-900">
+              <td className="px-6 py-4 whitespace-nowrap bg-[#0d0d0d]">
                 <div className="text-sm text-gray-200">
                   {
                     // @ts-ignore
@@ -286,7 +303,7 @@ const PersonaTable: React.FC<PersonaTableProps> = ({ personas }) => {
                   }
                 </div>
               </td>
-              <td className="px-6 py-4 whitespace-nowrap bg-gray-900">
+              <td className="px-6 py-4 whitespace-nowrap bg-[#0d0d0d]">
                 <div className="text-sm text-gray-200">
                   {
                     // @ts-ignore
@@ -294,19 +311,19 @@ const PersonaTable: React.FC<PersonaTableProps> = ({ personas }) => {
                   }
                 </div>
               </td>
-              <td className="px-6 py-4 whitespace-nowrap bg-gray-900">
+              <td className="px-6 py-4 whitespace-nowrap bg-[#0d0d0d]">
                 <div className="text-sm text-gray-200">{persona.stats.st}</div>
               </td>
-              <td className="px-6 py-4 whitespace-nowrap bg-gray-900">
+              <td className="px-6 py-4 whitespace-nowrap bg-[#0d0d0d]">
                 <div className="text-sm text-gray-200">{persona.stats.ma}</div>
               </td>
-              <td className="px-6 py-4 whitespace-nowrap bg-gray-900">
+              <td className="px-6 py-4 whitespace-nowrap bg-[#0d0d0d]">
                 <div className="text-sm text-gray-200">{persona.stats.en}</div>
               </td>
-              <td className="px-6 py-4 whitespace-nowrap bg-gray-900">
+              <td className="px-6 py-4 whitespace-nowrap bg-[#0d0d0d]">
                 <div className="text-sm text-gray-200">{persona.stats.ag}</div>
               </td>
-              <td className="px-6 py-4 whitespace-nowrap bg-gray-900">
+              <td className="px-6 py-4 whitespace-nowrap bg-[#0d0d0d]">
                 <div className="text-sm text-gray-200">{persona.stats.lu}</div>
               </td>
             </tr>
