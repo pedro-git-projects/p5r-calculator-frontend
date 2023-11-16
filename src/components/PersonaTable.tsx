@@ -16,7 +16,7 @@ import healing from "../assets/healing.png";
 import InheritanceUnion from "../types/InheritanceUnion.ts";
 import ResistsUnion from "../types/ResistsUnion.ts";
 import "../styles/fonts.css";
-import "../styles/table.css";
+import "../styles/hover.css";
 
 interface PersonaTableProps {
   personas: Persona[];
@@ -191,9 +191,51 @@ const PersonaTable: React.FC<PersonaTableProps> = ({ personas }) => {
                 </div>
               </td>
               <td className="frame px-6 py-4 whitespace-nowrap bg-[#0d0d0d]">
-                <Link to={`/persona-details/${persona.name}`}>
-                  <div className="text-sm text-gray-200">{persona.name}</div>
-                </Link>
+                <div className="link-wrapper">
+                  <span className="fallback">Index</span>
+                  <div className="text-wrapper">
+                    <Link to={`/persona-details/${persona.name}`}>
+                      <div className="normal">{persona.name}</div>
+                    </Link>
+                    <Link to={`/persona-details/${persona.name}`}>
+                      <div className="active">{persona.name}</div>
+                    </Link>
+                  </div>
+                  <div className="shape-wrapper">
+                    <div className="shape red-fill jelly">
+                      <svg
+                        x="0px"
+                        y="0px"
+                        viewBox="0 0 108.1 47"
+                        enableBackground="new 0 0 108.1 47"
+                      >
+                        <polygon
+                          fill="#FF0000"
+                          points="0,7.1 127.3,0 32.3,64 4.8,58.2"
+                        />
+                      </svg>
+                    </div>
+                    <div className="shape cyan-fill jelly">
+                      <svg
+                        x="0px"
+                        y="0px"
+                        viewBox="0 0 108.1 47"
+                        enableBackground="new 0 0 108.1 47"
+                      >
+                        <polygon
+                          fill="#00FFFF"
+                          points="14,0.5 127.4,0 77.4,164 2.3,61.1"
+                        />
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+
+                {
+                  // <Link to={`/persona-details/${persona.name}`}>
+                  //   <div className="text-sm text-gray-200">{persona.name}</div>
+                  // </Link>
+                }
               </td>
               <td className="px-6 py-4 whitespace-nowrap bg-[#0d0d0d]">
                 <div className="text-sm text-gray-200">{persona.lvl}</div>
