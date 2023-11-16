@@ -109,7 +109,7 @@ const PersonaTable: React.FC<PersonaTableProps> = ({ personas }) => {
 
   return (
     <div>
-      <table className="min-w-full divide-y divide-[#f2e852] bg-gray-800 text-white">
+      <table className="min-w-full bg-gray-800 text-white">
         <thead
           className="bg-[#732424]"
           style={{ position: "sticky", top: 0, zIndex: 1 }}
@@ -274,7 +274,7 @@ const PersonaTable: React.FC<PersonaTableProps> = ({ personas }) => {
                   {persona.arcana}
                 </div>
               </td>
-              <td className="frame px-6 py-4 whitespace-nowrap bg-[#0d0d0d]">
+              <td className="px-6 py-4 whitespace-nowrap bg-[#0d0d0d]">
                 <div className="link-wrapper">
                   <span className="fallback">Index</span>
                   <div className="text-wrapper">
