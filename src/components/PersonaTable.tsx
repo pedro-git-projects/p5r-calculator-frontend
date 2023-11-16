@@ -17,6 +17,7 @@ import InheritanceUnion from "../types/InheritanceUnion.ts";
 import ResistsUnion from "../types/ResistsUnion.ts";
 import "../styles/fonts.css";
 import "../styles/hover.css";
+import { useState } from "react";
 
 interface PersonaTableProps {
   personas: Persona[];
@@ -71,6 +72,41 @@ const getTextForResistance = (el: ResistsUnion) => {
 };
 
 const PersonaTable: React.FC<PersonaTableProps> = ({ personas }) => {
+  const [sortOrder, setSortOrder] = useState<"asc" | "desc">("asc");
+  const [sortColumn, setSortColumn] = useState<string>("arcana");
+
+  const handleSort = (column: string) => {
+    if (column === sortColumn) {
+      setSortOrder(sortOrder === "asc" ? "desc" : "asc");
+    } else {
+      setSortColumn(column);
+      setSortOrder("asc");
+    }
+  };
+
+  const shouldDisplayIndicator = (column: string) => {
+    return sortColumn === column;
+  };
+
+  const sortedPersonas = [...personas].sort((a, b) => {
+    if (sortColumn === "arcana" || sortColumn === "name") {
+      return (
+        // @ts-ignore
+        a[sortColumn].localeCompare(b[sortColumn]) *
+        (sortOrder === "asc" ? 1 : -1)
+      );
+    } else if (["st", "ma", "en", "ag", "lu"].includes(sortColumn)) {
+      return (
+        // @ts-ignore
+        (a.stats[sortColumn] - b.stats[sortColumn]) *
+        (sortOrder === "asc" ? 1 : -1)
+      );
+    } else {
+      // @ts-ignore
+      return (a[sortColumn] - b[sortColumn]) * (sortOrder === "asc" ? 1 : -1);
+    }
+  });
+
   return (
     <div>
       <table className="min-w-full divide-y divide-[#f2e852] bg-gray-800 text-white">
@@ -79,14 +115,32 @@ const PersonaTable: React.FC<PersonaTableProps> = ({ personas }) => {
           style={{ position: "sticky", top: 0, zIndex: 1 }}
         >
           <tr>
-            <th className="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider">
+            <th
+              className="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider cursor-pointer"
+              onClick={() => handleSort("arcana")}
+            >
               Arcana
+              {shouldDisplayIndicator("arcana") && (
+                <span>{sortOrder === "asc" ? " ▲" : " ▼"}</span>
+              )}
             </th>
-            <th className="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider">
+            <th
+              className="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider cursor-pointer"
+              onClick={() => handleSort("name")}
+            >
               Name
+              {shouldDisplayIndicator("name") && (
+                <span>{sortOrder === "asc" ? " ▲" : " ▼"}</span>
+              )}
             </th>
-            <th className="px-6 py-3 text-left text-xs font-medium  uppercase tracking-wider">
+            <th
+              className="px-6 py-3 text-left text-xs font-medium  uppercase tracking-wider cursor-pointer"
+              onClick={() => handleSort("lvl")}
+            >
               Lvl
+              {shouldDisplayIndicator("lvl") && (
+                <span>{sortOrder === "asc" ? " ▲" : " ▼"}</span>
+              )}
             </th>
             <th className="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider">
               Inherits
@@ -165,25 +219,55 @@ const PersonaTable: React.FC<PersonaTableProps> = ({ personas }) => {
                 style={{ width: "24px", height: "24px" }}
               />
             </th>
-            <th className="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider">
+            <th
+              className="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider cursor-pointer"
+              onClick={() => handleSort("st")}
+            >
               St
+              {shouldDisplayIndicator("st") && (
+                <span>{sortOrder === "asc" ? " ▲" : " ▼"}</span>
+              )}
             </th>
-            <th className="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider">
+            <th
+              className="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider cursor-pointer"
+              onClick={() => handleSort("ma")}
+            >
               Ma
+              {shouldDisplayIndicator("ma") && (
+                <span>{sortOrder === "asc" ? " ▲" : " ▼"}</span>
+              )}
             </th>
-            <th className="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider">
+            <th
+              className="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider cursor-pointer"
+              onClick={() => handleSort("en")}
+            >
               En
+              {shouldDisplayIndicator("en") && (
+                <span>{sortOrder === "asc" ? " ▲" : " ▼"}</span>
+              )}
             </th>
-            <th className="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider">
+            <th
+              className="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider cursor-pointer"
+              onClick={() => handleSort("ag")}
+            >
               Ag
+              {shouldDisplayIndicator("ag") && (
+                <span>{sortOrder === "asc" ? " ▲" : " ▼"}</span>
+              )}
             </th>
-            <th className="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider">
+            <th
+              className="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider cursor-pointer"
+              onClick={() => handleSort("lu")}
+            >
               Lu
+              {shouldDisplayIndicator("lu") && (
+                <span>{sortOrder === "asc" ? " ▲" : " ▼"}</span>
+              )}
             </th>
           </tr>
         </thead>
         <tbody className="bg-white">
-          {personas.map(persona => (
+          {sortedPersonas.map(persona => (
             <tr key={persona.id}>
               <td className="px-6 py-4 whitespace-nowrap bg-[#0d0d0d]">
                 <div className="text-sm font-medium text-gray-200">
@@ -230,12 +314,6 @@ const PersonaTable: React.FC<PersonaTableProps> = ({ personas }) => {
                     </div>
                   </div>
                 </div>
-
-                {
-                  // <Link to={`/persona-details/${persona.name}`}>
-                  //   <div className="text-sm text-gray-200">{persona.name}</div>
-                  // </Link>
-                }
               </td>
               <td className="px-6 py-4 whitespace-nowrap bg-[#0d0d0d]">
                 <div className="text-sm text-gray-200">{persona.lvl}</div>
