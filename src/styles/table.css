@@ -1,3 +1,10 @@
+@font-face {
+  font-family: 'KoreanKRSM';
+  src: url('../assets/fonts/KoreanKRSM.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
 body {
   font-family: KoreanKRSM;
 }

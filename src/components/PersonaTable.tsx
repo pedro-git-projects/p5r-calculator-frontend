@@ -15,7 +15,7 @@ import ailment from "../assets/ailment.png";
 import healing from "../assets/healing.png";
 import InheritanceUnion from "../types/InheritanceUnion.ts";
 import ResistsUnion from "../types/ResistsUnion.ts";
-import "../styles/fonts.css";
+import "../styles/table.css";
 import "../styles/hover.css";
 import { useState } from "react";
 

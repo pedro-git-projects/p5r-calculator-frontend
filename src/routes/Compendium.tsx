@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import Persona from "../types/Persona";
 import PersonaTable from "../components/PersonaTable";
+import TakeYourTime from "../components/TakeYourTime";
 
 const CompendiumScreen: React.FC = () => {
   const [personas, setPersonas] = useState(Array<Persona>);
@@ -22,7 +23,7 @@ const CompendiumScreen: React.FC = () => {
 
   return (
     <div>
-      {loading ? <p>Loading...</p> : <PersonaTable personas={personas} />}
+      {loading ? <TakeYourTime /> : <PersonaTable personas={personas} />}
     </div>
   );
 };
