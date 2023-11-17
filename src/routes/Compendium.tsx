@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-import Persona from "../types/Persona";
+import Persona from "../types/compendium/Persona";
 import PersonaTable from "../components/PersonaTable";
 import TakeYourTime from "../components/TakeYourTime";
 
