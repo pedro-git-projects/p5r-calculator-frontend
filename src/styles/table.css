@@ -8,3 +8,13 @@
 body {
   font-family: KoreanKRSM;
 }
+
+@tailwind utilities;
+
+::-webkit-scrollbar {
+  background-color: #732424;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-black;
+}

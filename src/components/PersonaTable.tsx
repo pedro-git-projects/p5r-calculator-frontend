@@ -18,7 +18,6 @@ import ResistsUnion from "../types/ResistsUnion.ts";
 import "../styles/table.css";
 import "../styles/hover.css";
 import { useState } from "react";
-import Navbar from "./Navbar.tsx";
 
 interface PersonaTableProps {
   personas: Persona[];
@@ -110,12 +109,9 @@ const PersonaTable: React.FC<PersonaTableProps> = ({ personas }) => {
 
   return (
     <div>
-      <Navbar />
-      <div className="overflow-x-auto">
         <table className="min-w-full bg-gray-800 text-white">
           <thead
-            className="bg-[#732424]"
-            style={{ position: "sticky", top: 0, zIndex: 1 }}
+            className="bg-[#732424] sticky top-0"
           >
             <tr>
               <th
@@ -450,7 +446,6 @@ const PersonaTable: React.FC<PersonaTableProps> = ({ personas }) => {
           </tbody>
         </table>
       </div>
-    </div>
   );
 };
 export default PersonaTable;
