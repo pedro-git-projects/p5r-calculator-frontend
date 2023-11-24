@@ -18,10 +18,10 @@ interface ResistsTableProps {
 const ResistsTable: React.FC<ResistsTableProps> = ({ resists }) => {
   return (
     <div className="container mx-auto mt-8">
-      <table className="min-w-full bg-white border border-gray-300 entry-table">
+      <table className="min-w-full bg-[#0d0d0d] text-white">
         <thead>
           <tr>
-            <th className="title" colSpan={Object.keys(resists).length + 1}>
+            <th className="title bg-[#732424]" colSpan={Object.keys(resists).length + 1}>
               Resistances
             </th>
           </tr>

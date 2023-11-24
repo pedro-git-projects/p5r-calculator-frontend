@@ -1,0 +1,153 @@
+.link-wrapper {
+  position: relative;
+  display: inline-block;
+  margin: 0 16px;
+}
+
+.link-wrapper .fallback {
+  font-size: 2.25em;
+  letter-spacing: 4px;
+  line-height: 0;
+  opacity: 0;
+  top: 15px;
+  left: 0;
+}
+
+.link-wrapper .shape-wrapper {
+  display: none;
+  position: absolute;
+  top: -40%;
+  left: -30%;
+  right: 0;
+  transform: translate(-50%, -50%);
+}
+
+.link-wrapper:hover {
+  z-index: 9999;
+}
+
+.link-wrapper:hover .shape-wrapper {
+  transform: rotate(-6deg);
+  display: block;
+}
+
+.link-wrapper:hover .shape-wrapper .shape.cyan-fill {
+  transform: scale(3, .1);
+}
+
+.link-wrapper:hover .text-wrapper a {
+  color: #000;
+  animation: tiltBounce .15s ease;
+  animation-fill-mode: forwards;
+  display: block;
+}
+
+.link-wrapper:hover .text-wrapper a.normal {
+  mix-blend-mode: darken;
+}
+
+.link-wrapper:nth-child(even):hover .shape-wrapper {
+  transform: rotate(11deg);
+}
+
+.link-wrapper:nth-child(even):hover .text-wrapper a {
+  animation: tiltBounceAlt .15s ease;
+  animation-fill-mode: forwards;
+}
+
+.text-wrapper a {
+  width: auto;
+  height: 0px;
+  display: block;
+  left: 0;
+  right: 0;
+  top: -5px;
+  margin: 0 auto;
+  position: absolute;
+  z-index: 999;
+}
+
+.text-wrapper a.normal {
+  display: block;
+}
+
+.text-wrapper a.active {
+  display: none;
+  z-index: -1;
+}
+
+.shape-wrapper {
+  filter: sepia(50%) saturate(3);
+}
+
+.shape-wrapper .shape {
+  transition: all .1s linear;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 35px;
+  overflow: hidden;
+}
+
+.shape-wrapper .shape.cyan-fill {
+  mix-blend-mode: screen;
+  animation-delay: 0.05s;
+  animation-duration: .4s;
+}
+
+.shape-wrapper .shape.red-fill {
+  animation-duration: .45s;
+  animation-delay: 0.08s;
+  opacity: .8;
+}
+
+.jelly {
+  -webkit-animation-name: jelly;
+  animation-name: jelly;
+  -webkit-transform-origin: center;
+  transform-origin: center;
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+  -webkit-animation-timing-function: linear;
+  animation-timing-function: linear;
+}
+
+@keyframes tiltBounce {
+  0% {
+    transform: scale(0.8) rotate(-7deg);
+  }
+  50% {
+    transform: scale(1.2) rotate(-7deg);
+  }
+  100% {
+    transform: scale(0.9) rotate(-7deg);
+  }
+}
+
+@keyframes tiltBounceAlt {
+  0% {
+    transform: scale(0.8) rotate(7deg);
+  }
+  50% {
+    transform: scale(1.2) rotate(7deg);
+  }
+  100% {
+    transform: scale(0.9) rotate(7deg);
+  }
+}
+
+@keyframes jelly {
+  0% {
+    width: 80%;
+    transform: scale(1.1) skewX(10deg) translateY(2px) rotateX(20deg) rotateY(5deg) rotateZ(-5deg);
+  }
+  50% {
+    width: 80%;
+    transform: scale(1.1) skewX(-8deg) translateY(-1px) translateZ(-15px);
+  }
+  100% {
+    width: 80%;
+    transform: scale(1.1) skewX(10deg) translateY(2px) rotateX(-20deg) rotateY(-5deg) rotateZ(-7.5deg);
+  }
+}

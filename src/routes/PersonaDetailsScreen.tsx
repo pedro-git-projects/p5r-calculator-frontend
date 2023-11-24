@@ -5,6 +5,8 @@ import DetailedPersona from "../types/detailed/DetailedPersona";
 import Recipe from "../types/recipes/Recipe";
 import TakeYourTime from "../components/TakeYourTime";
 import DetailedPersonaTable from "../components/DetaliedPersonaTable";
+import RecipeTable from "../components/RecipesTable";
+import "../styles/details.css";
 
 const PersonaDetailsScreen: React.FC = () => {
   const { name } = useParams<{ name: string }>();
@@ -36,32 +38,17 @@ const PersonaDetailsScreen: React.FC = () => {
         <TakeYourTime />
       ) : (
         <>
+          <div className="text-center font-bold text-2xl text-white">{name}</div>
           {detailedPersona !== undefined && (
-            <DetailedPersonaTable persona={detailedPersona} />
+            <>
+              <div className="my-4">
+              <DetailedPersonaTable persona={detailedPersona} />
+              </div>
+              <div className="my-4">
+              <RecipeTable recipes={recipes} />
+              </div>
+            </>
           )}
-          <div>Data from route 1: {detailedPersona?.name}</div>
-          <div>
-            <table>
-              <thead>
-                <tr>
-                  <th>Cost</th>
-                  <th>Result Name</th>
-                  <th>Source Names</th>
-                </tr>
-              </thead>
-              <tbody>
-                {recipes.map((recipe, index) => (
-                  <tr key={index}>
-                    <td>{recipe.cost}</td>
-                    <td>{recipe.result.name}</td>
-                    <td>
-                      {recipe.sources?.map(source => source.name).join(", ")}
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
         </>
       )}
     </>

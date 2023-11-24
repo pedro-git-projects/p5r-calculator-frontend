@@ -60,26 +60,26 @@ const getImageForSkill = (el: SkillUnion) => {
 const DetailedSkillstable: React.FC<DetailedSkillsProps> = ({ skills }) => {
   return (
     <div className="container mx-auto mt-8">
-      <table className="min-w-full bg-white border border-gray-300">
-        <thead>
+      <table className="min-w-full bg-[#0d0d0d] text-white">
+        <thead className="bg-[#732424] shadow-lg" >
           <tr>
-            <th className="py-2 px-4 border-b" colSpan={5}>
+            <th className="py-2 px-4" colSpan={5}>
               <h2 className="text-center text-xl font-bold">Skills</h2>
             </th>
           </tr>
           <tr>
-            <th className="py-2 px-4 border-b">Name</th>
-            <th className="py-2 px-4 border-b">Element</th>
-            <th className="py-2 px-4 border-b">Cost</th>
-            <th className="py-2 px-4 border-b">Effect</th>
-            <th className="py-2 px-4 border-b">Target</th>
+            <th className="px-6 py-4 whitespace-nowrap bg-[#0d0d0d]">Name</th>
+            <th className="px-6 py-4 whitespace-nowrap bg-[#0d0d0d]">Element</th>
+            <th className="px-6 py-4 whitespace-nowrap bg-[#0d0d0d]">Cost</th>
+            <th className="px-6 py-4 whitespace-nowrap bg-[#0d0d0d]">Effect</th>
+            <th className="px-6 py-4 whitespace-nowrap bg-[#0d0d0d]">Target</th>
           </tr>
         </thead>
         <tbody>
           {skills.map(skill => (
-            <tr key={skill.id} className="border-b">
-              <td className="py-2 px-4 text-center">{skill.name}</td>
-              <td className="flex justify-center items-center">
+            <tr key={skill.id}>
+              <td className="py-2 px-4 text-center whitespace-nowrap bg-[#0d0d0d]">{skill.name}</td>
+              <td className="flex justify-center whitespace-nowrap bg-[#0d0d0d] items-center">
                 <img
                   className="object-center"
                   src={
@@ -89,9 +89,9 @@ const DetailedSkillstable: React.FC<DetailedSkillsProps> = ({ skills }) => {
                   alt={skill.element}
                 />
               </td>
-              <td className="py-2 px-4 text-center">{skill.cost}</td>
-              <td className="py-2 px-4 text-center">{skill.effect}</td>
-              <td className="py-2 px-4 text-center">{skill.target}</td>
+              <td className="py-2 px-4 text-center whitespace-nowrap bg-[#0d0d0d]">{skill.cost}</td>
+              <td className="py-2 px-4 text-center whitespace-nowrap bg-[#0d0d0d]">{skill.effect}</td>
+              <td className="py-2 px-4 text-center whitespace-nowrap bg-[#0d0d0d]">{skill.target}</td>
             </tr>
           ))}
         </tbody>
