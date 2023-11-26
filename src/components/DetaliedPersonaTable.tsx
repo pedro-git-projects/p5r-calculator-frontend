@@ -9,11 +9,11 @@ interface DetailedPersonaTableProps {
 
 const DetailedPersonaTable: React.FC<DetailedPersonaTableProps> = persona => {
   return (
-    <>
+    <div className="flex flex-col">
       <DetailedSkillstable skills={persona.persona.detailed_skills} />
       <StatsTable stats={persona.persona.stats} />
       <ResistsTable resists={persona.persona.resists} />
-    </>
+    </div>
   );
 };
 

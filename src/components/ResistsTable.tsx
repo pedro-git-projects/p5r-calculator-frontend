@@ -21,7 +21,10 @@ const ResistsTable: React.FC<ResistsTableProps> = ({ resists }) => {
       <table className="min-w-full bg-[#0d0d0d] text-white">
         <thead>
           <tr>
-            <th className="title bg-[#732424]" colSpan={Object.keys(resists).length + 1}>
+            <th
+              className="title bg-[#732424]"
+              colSpan={Object.keys(resists).length + 1}
+            >
               Resistances
             </th>
           </tr>

@@ -7,6 +7,7 @@ import TakeYourTime from "../components/TakeYourTime";
 import DetailedPersonaTable from "../components/DetaliedPersonaTable";
 import RecipeTable from "../components/RecipesTable";
 import "../styles/details.css";
+import Navbar from "../components/Navbar";
 
 const PersonaDetailsScreen: React.FC = () => {
   const { name } = useParams<{ name: string }>();
@@ -37,19 +38,24 @@ const PersonaDetailsScreen: React.FC = () => {
       {loading ? (
         <TakeYourTime />
       ) : (
-        <>
-          <div className="text-center font-bold text-2xl text-white">{name}</div>
+        <div className="min-h-screen flex flex-col">
+          <div className="mb-10 overflow-y-auto">
+            <Navbar />
+          </div>
+          <div className="text-center font-bold text-2xl text-white overflow-y-auto">
+            {name}
+          </div>
           {detailedPersona !== undefined && (
             <>
-              <div className="my-4">
-              <DetailedPersonaTable persona={detailedPersona} />
+              <div className="my-4 overflow-y-auto">
+                <DetailedPersonaTable persona={detailedPersona} />
               </div>
               <div className="my-4">
-              <RecipeTable recipes={recipes} />
+                <RecipeTable recipes={recipes} />
               </div>
             </>
           )}
-        </>
+        </div>
       )}
     </>
   );
