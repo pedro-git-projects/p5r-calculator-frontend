@@ -9,6 +9,7 @@ const RecipeTable: React.FC<RecipesTableProps> = ({ recipes }) => {
   const maxSourcesCount = Math.max(
     ...recipes.map(recipe => (recipe.sources ? recipe.sources.length : 0)),
   );
+
   return (
     <div className="overflow-x-auto">
       <table className="min-w-full bg-[#0d0d0d] text-white">
@@ -22,31 +23,31 @@ const RecipeTable: React.FC<RecipesTableProps> = ({ recipes }) => {
             </th>
           </tr>
           <tr>
-            <th className="py-2 px-4 border-b">Price</th>
+            <th className="py-2 px-4">Price</th>
             {Array.from({ length: maxSourcesCount }, (_, index) => (
               <React.Fragment key={index}>
-                <th className="py-2 px-4 border-b text-center">Arcana</th>
-                <th className="py-2 px-4 border-b text-center">Level</th>
-                <th className="py-2 px-4 border-b text-center">Name</th>
+                <th className="py-2 px-4 text-center">Arcana</th>
+                <th className="py-2 px-4 text-center">Level</th>
+                <th className="py-2 px-4 text-center">Name</th>
               </React.Fragment>
             ))}
           </tr>
         </thead>
         <tbody>
           {recipes.map((recipe, index) => (
-            <tr key={index}>
-              <td className="py-2 px-4 border-b text-center">{recipe.cost}</td>
+            <tr key={index} className="hover:bg-gray-600">
+              <td className="py-2 px-4 text-center">{recipe.cost}</td>
               {Array.from({ length: maxSourcesCount }, (_, sourceIndex) => {
                 const source = recipe.sources && recipe.sources[sourceIndex];
                 return (
                   <React.Fragment key={sourceIndex}>
-                    <td className="py-2 px-4 border-b text-center">
+                    <td className="py-2 px-4 text-center">
                       {source?.arcana || ""}
                     </td>
-                    <td className="py-2 px-4 border-b text-center">
+                    <td className="py-2 px-4 text-center">
                       {source?.lvl || ""}
                     </td>
-                    <td className="py-2 px-4 border-b text-center">
+                    <td className="py-2 px-4 text-center">
                       {source?.name || ""}
                     </td>
                   </React.Fragment>
