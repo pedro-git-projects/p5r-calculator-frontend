@@ -11,6 +11,9 @@ const Navbar: React.FC = () => {
       <Link to="/skill-list" className="px-4">
         <div className="text-gray-100 hover:text-[#f2e852]">Skills</div>
       </Link>
+      <Link to="/recipe-calculator" className="px-4">
+        <div className="text-gray-100 hover:text-[#f2e852]">Calculator</div>
+      </Link>
       <Link to="/search" className="px-4">
         <div className="text-gray-100 hover:text-[#f2e852]">Search</div>
       </Link>

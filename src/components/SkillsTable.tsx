@@ -83,7 +83,7 @@ const SkillsTable: React.FC<SkillsTableProps> = ({ skillsEntries }) => {
         </thead>
         <tbody className="bg-[#0d0d0d] text-gray-200">
           {skillsEntries.map(skill => (
-            <tr key={skill.id} className="hover:bg-[#8c6723]">
+            <tr key={skill.id} className="hover:bg-red-950">
               <td className="px-6 py-4 whitespace-nowrap text-center">
                 {skill.name}
               </td>

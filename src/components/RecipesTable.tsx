@@ -36,7 +36,7 @@ const RecipeTable: React.FC<RecipesTableProps> = ({ recipes }) => {
         </thead>
         <tbody>
           {recipes.map((recipe, index) => (
-            <tr key={index} className="hover:bg-[#8c6723]">
+            <tr key={index} className="hover:bg-red-950">
               <td className="py-2 px-4 text-center">{recipe.cost}</td>
               {Array.from({ length: maxSourcesCount }, (_, sourceIndex) => {
                 const source = recipe.sources && recipe.sources[sourceIndex];
