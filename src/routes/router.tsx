@@ -4,6 +4,7 @@ import PersonaDetailsScreen from "./PersonaDetailsScreen";
 import NotFound from "./NotFound";
 import SkillListScreen from "./SkillList";
 import RecipeCalculator from "./RecipeCalculator";
+import SearchPage from "./Search";
 
 const router = createBrowserRouter([
   {
@@ -21,6 +22,10 @@ const router = createBrowserRouter([
   {
     path: "recipe-calculator",
     element: <RecipeCalculator />,
+  },
+  {
+    path: "search",
+    element: <SearchPage />,
   },
   {
     path: "*",
