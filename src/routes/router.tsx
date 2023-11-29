@@ -5,6 +5,8 @@ import NotFound from "./NotFound";
 import SkillListScreen from "./SkillList";
 import RecipeCalculator from "./RecipeCalculator";
 import SearchPage from "./Search";
+import Dashboard from "./Dashboard";
+import Login from "./Login";
 
 const router = createBrowserRouter([
   {
@@ -26,6 +28,14 @@ const router = createBrowserRouter([
   {
     path: "search",
     element: <SearchPage />,
+  },
+  {
+    path: "login",
+    element: <Login />,
+  },
+  {
+    path: "admin-panel",
+    element: <Dashboard />,
   },
   {
     path: "*",
