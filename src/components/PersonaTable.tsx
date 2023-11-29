@@ -18,6 +18,7 @@ import ResistsUnion from "../types/compendium/ResistsUnion.ts";
 import "../styles/table.css";
 import "../styles/hover.css";
 import { useState } from "react";
+import Navbar from "./Navbar.tsx";
 
 interface PersonaTableProps {
   personas: Array<Persona>;
@@ -109,6 +110,16 @@ const PersonaTable: React.FC<PersonaTableProps> = ({ personas }) => {
 
   return (
     <div>
+      <table className="min-w-full bg-[#732424] text-white">
+        <thead>
+          <tr>
+            <th className="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider">
+              <Navbar />
+            </th>
+          </tr>
+        </thead>
+      </table>
+
       <table className="min-w-full bg-gray-800 text-white">
         <thead className="bg-[#732424] sticky top-0">
           <tr>
