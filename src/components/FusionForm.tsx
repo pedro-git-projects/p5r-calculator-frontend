@@ -1,24 +1,23 @@
 import React, { useState, useEffect } from "react";
 import Persona from "../types/compendium/Persona";
 import axios from "axios";
+import FusionResultTable from "./FusionResultTable";
+import FusionResult from "../types/fusion/FusionResult";
 
-interface FusionFormProps {}
-
-const FusionForm: React.FC<FusionFormProps> = () => {
+const FusionForm: React.FC = () => {
   const [persona1Name, setPersona1Name] = useState("");
   const [persona2Name, setPersona2Name] = useState("");
-  const [fusionResult, setFusionResult] = useState<Persona | null>(null);
+  const [fusionResult, setFusionResult] = useState<FusionResult | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [personaSuggestions, setPersonaSuggestions] = useState<string[]>([]);
 
   useEffect(() => {
     const fetchPersonaSuggestions = async () => {
       try {
-        const response = await axios.get<Persona[]>(
+        const response = await axios.get<Array<Persona>>(
           "http://127.0.0.1:5000/personas",
         );
         const suggestions = response.data.map(persona => persona.name);
-        console.log(suggestions);
         setPersonaSuggestions(suggestions);
       } catch (err) {
         console.error("Error fetching persona suggestions:", err);
@@ -40,16 +39,14 @@ const FusionForm: React.FC<FusionFormProps> = () => {
     e.preventDefault();
 
     try {
-      const response = await axios.get<Persona>(
+      const response = await axios.get<FusionResult>(
         `http://127.0.0.1:5000/calculator/${persona1Name}/${persona2Name}`,
       );
       setFusionResult(response.data);
       setError(null);
     } catch (err) {
       setFusionResult(null);
-      setError(
-        "Persona not found. One or both of the specified personas do not exist.",
-      );
+      setError("The provided Personas can't be successfully fused.");
     }
   };
 
@@ -96,7 +93,10 @@ const FusionForm: React.FC<FusionFormProps> = () => {
           ))}
         </datalist>
 
-        <button type="submit" className="bg-blue-500 text-white p-2 rounded">
+        <button
+          type="submit"
+          className="bg-[#732424] hover:bg-[#611c1c] text-white p-2 rounded"
+        >
           Fuse Personas
         </button>
       </form>
@@ -105,8 +105,7 @@ const FusionForm: React.FC<FusionFormProps> = () => {
 
       {fusionResult && (
         <div className="mt-4">
-          <h2 className="text-lg font-semibold">Fusion Result:</h2>
-          <pre>{JSON.stringify(fusionResult, null, 2)}</pre>
+          <FusionResultTable fusionResult={fusionResult} />
         </div>
       )}
     </div>

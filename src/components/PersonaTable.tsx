@@ -20,7 +20,7 @@ import "../styles/hover.css";
 import { useState } from "react";
 
 interface PersonaTableProps {
-  personas: Persona[];
+  personas: Array<Persona>;
 }
 
 const getImageForInheritance = (el: InheritanceUnion) => {
