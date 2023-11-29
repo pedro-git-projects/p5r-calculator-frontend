@@ -5,6 +5,8 @@ import Resists from "../../types/detailed/Resists";
 import axios from "axios";
 import { useAuth } from "../../state/AuthProvider";
 import { useState } from "react";
+import SuccessModal from "../utils/SuccessModal";
+import ErrorModal from "../utils/ErrorModal";
 
 interface SkillEntry {
   name: string;
@@ -61,6 +63,10 @@ const PostPersonaForm: React.FC = () => {
     curse: "-",
   });
 
+  const [successMessage, setSuccessMessage] = useState<string>("");
+  const [errorMessage, setErrorMessage] = useState<string>("");
+  const [isSuccessModalOpen, setIsSuccessModalOpen] = useState(false);
+  const [isErrorModalOpen, setIsErrorModalOpen] = useState(false);
   const handleSkillChange = (
     index: number,
     skillName: string,
@@ -121,15 +127,30 @@ const PostPersonaForm: React.FC = () => {
         },
       );
 
-      console.log(personaData);
-      console.log("Persona creation successful:", response.data);
-    } catch (error) {
-      console.error("Error creating persona:", error);
+      setSuccessMessage(response.data.message);
+      setIsSuccessModalOpen(true);
+    } catch (error: any) {
+      setErrorMessage(error.response?.data?.message || "An error occurred.");
+      setIsErrorModalOpen(true);
     }
   };
 
   return (
     <div className="max-w-md mx-auto mt-8 p-6 bg-white rounded-md shadow-md">
+      {isSuccessModalOpen && (
+        <SuccessModal
+          message={successMessage}
+          onClose={() => setIsSuccessModalOpen(false)}
+        />
+      )}
+
+      {isErrorModalOpen && (
+        <ErrorModal
+          message={errorMessage}
+          onClose={() => setIsErrorModalOpen(false)}
+        />
+      )}
+
       <h2 className="text-2xl font-semibold mb-4">Create Persona</h2>
       <form onSubmit={handleSubmit}>
         <div className="mb-4">
