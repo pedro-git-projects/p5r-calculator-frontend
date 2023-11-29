@@ -16,9 +16,10 @@ const DashboardLogin: React.FC = () => {
         username,
         password,
       });
-      const { accessToken } = response.data;
-      login(accessToken);
+      const { access_token } = response.data;
+      login(access_token);
       navigate("/admin-panel");
+      console.log(access_token);
     } catch (err) {
       setError("Invalid username or password");
     }
