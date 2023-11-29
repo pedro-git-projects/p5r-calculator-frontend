@@ -34,6 +34,9 @@ const SkillListScreen: React.FC = () => {
           <div className="mb-10 overflow-y-auto">
             <Navbar />
           </div>
+          <div className="text-2xl font-semibold text-center text-white">
+          Skills
+          </div>
           <div className="my-4 overflow-y-auto">
             <SkillsTable skillsEntries={skillList} />
           </div>
