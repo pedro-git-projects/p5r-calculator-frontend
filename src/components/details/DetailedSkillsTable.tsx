@@ -1,23 +1,23 @@
-import DetailedSkill from "../types/detailed/DetailedSkill";
-import SkillUnion from "../types/detailed/SkillUnion";
-import bless from "../assets/bless.png";
-import curse from "../assets/curse.png";
-import elec from "../assets/elec.png";
-import fire from "../assets/fire.png";
-import gun from "../assets/gun.png";
-import ice from "../assets/ice.png";
-import wind from "../assets/wind.png";
-import nuke from "../assets/nuke.png";
-import phys from "../assets/phys.png";
-import psy from "../assets/psy.png";
-import ail from "../assets/ailment.png";
-import passive from "../assets/passive.png";
-import support from "../assets/support.png";
-import almighty from "../assets/almighty.png";
-import healing from "../assets/healing.png";
+import bless from "../../assets/bless.png";
+import curse from "../../assets/curse.png";
+import elec from "../../assets/elec.png";
+import fire from "../../assets/fire.png";
+import gun from "../../assets/gun.png";
+import ice from "../../assets/ice.png";
+import wind from "../../assets/wind.png";
+import nuke from "../../assets/nuke.png";
+import phys from "../../assets/phys.png";
+import psy from "../../assets/psy.png";
+import ail from "../../assets/ailment.png";
+import passive from "../../assets/passive.png";
+import support from "../../assets/support.png";
+import almighty from "../../assets/almighty.png";
+import healing from "../../assets/healing.png";
+import DetailedSkill from "../../types/detailed/DetailedSkill";
+import SkillUnion from "../../types/detailed/SkillUnion";
 
 interface DetailedSkillsProps {
-  skills: DetailedSkill[];
+  skills: Array<DetailedSkill>;
 }
 
 const getImageForSkill = (el: SkillUnion) => {

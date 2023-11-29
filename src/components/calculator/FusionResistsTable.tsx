@@ -1,5 +1,5 @@
 import React from "react";
-import ResultResists from "../types/fusion/ResultResists";
+import ResultResists from "../../types/fusion/ResultResists";
 
 interface ResistsTableProps {
   resists: ResultResists;

@@ -1,8 +1,8 @@
 import React from "react";
-import FusionResult from "../types/fusion/FusionResult";
 import FusionResistsTable from "./FusionResistsTable";
 import FusionSkillsTable from "./FusionSkillTable";
 import FusionStatsTable from "./FusionStatsTable";
+import FusionResult from "../../types/fusion/FusionResult";
 
 interface FusionResultTableProps {
   fusionResult: FusionResult;

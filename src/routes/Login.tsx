@@ -1,4 +1,4 @@
-import DashboardLogin from "../components/DashboardLogin";
+import DashboardLogin from "../components/dashboard/DashboardLogin";
 import { AuthProvider } from "../state/AuthProvider";
 
 const Login = () => {

@@ -1,5 +1,5 @@
-import FusionForm from "../components/FusionForm";
-import Navbar from "../components/Navbar";
+import FusionForm from "../components/calculator/FusionForm";
+import Navbar from "../components/utils/Navbar";
 
 const RecipeCalculator: React.FC = () => {
   return (

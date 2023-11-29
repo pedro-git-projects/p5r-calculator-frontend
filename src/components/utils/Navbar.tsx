@@ -1,5 +1,5 @@
-import "../styles/hover.css";
-import "../styles/nav.css";
+import "../../styles/hover.css";
+import "../../styles/nav.css";
 import { Link, useLocation } from "react-router-dom";
 
 const Navbar: React.FC = () => {

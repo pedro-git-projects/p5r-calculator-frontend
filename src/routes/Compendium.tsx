@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import Persona from "../types/compendium/Persona";
-import PersonaTable from "../components/PersonaTable";
-import TakeYourTime from "../components/TakeYourTime";
+import TakeYourTime from "../components/utils/TakeYourTime";
+import PersonaTable from "../components/compendium/PersonaTable";
 
 const CompendiumScreen: React.FC = () => {
   const [personas, setPersonas] = useState(Array<Persona>);

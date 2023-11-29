@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
-import Persona from "../types/compendium/Persona";
 import axios from "axios";
 import FusionResultTable from "./FusionResultTable";
-import FusionResult from "../types/fusion/FusionResult";
+import Persona from "../../types/compendium/Persona";
+import FusionResult from "../../types/fusion/FusionResult";
 
 const FusionForm: React.FC = () => {
   const [persona1Name, setPersona1Name] = useState("");

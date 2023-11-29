@@ -1,5 +1,11 @@
+import PostPersonaForm from "../components/dashboard/PostPersonaForm";
+
 const Dashboard = () => {
-  return <></>;
+  return (
+    <>
+      <PostPersonaForm />
+    </>
+  );
 };
 
 export default Dashboard;

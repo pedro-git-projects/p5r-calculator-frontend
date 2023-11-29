@@ -1,15 +1,15 @@
-import Resists from "../types/detailed/Resists";
-import bless from "../assets/bless.png";
-import curse from "../assets/curse.png";
-import elec from "../assets/elec.png";
-import fire from "../assets/fire.png";
-import gun from "../assets/gun.png";
-import ice from "../assets/ice.png";
-import wind from "../assets/wind.png";
-import nuke from "../assets/nuke.png";
-import phys from "../assets/phys.png";
-import psy from "../assets/psy.png";
-import ResistsUnion from "../types/compendium/ResistsUnion.ts";
+import bless from "../../assets/bless.png";
+import curse from "../../assets/curse.png";
+import elec from "../../assets/elec.png";
+import fire from "../../assets/fire.png";
+import gun from "../../assets/gun.png";
+import ice from "../../assets/ice.png";
+import wind from "../../assets/wind.png";
+import nuke from "../../assets/nuke.png";
+import phys from "../../assets/phys.png";
+import psy from "../../assets/psy.png";
+import ResistsUnion from "../../types/compendium/ResistsUnion";
+import Resists from "../../types/detailed/Resists";
 
 interface ResistsTableProps {
   resists: Resists;

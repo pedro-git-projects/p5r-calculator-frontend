@@ -1,5 +1,5 @@
 import React from "react";
-import Stats from "../types/detailed/Stats";
+import Stats from "../../types/detailed/Stats";
 
 interface StatsTableProps {
   stats: Stats;

@@ -1,6 +1,6 @@
 import React from "react";
-import Recipe from "../types/recipes/Recipe";
 import { Link } from "react-router-dom";
+import Recipe from "../../types/recipes/Recipe";
 
 interface RecipesTableProps {
   recipes: Array<Recipe>;

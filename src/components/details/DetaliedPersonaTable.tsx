@@ -1,4 +1,4 @@
-import DetailedPersona from "../types/detailed/DetailedPersona";
+import DetailedPersona from "../../types/detailed/DetailedPersona";
 import DetailedSkillstable from "./DetailedSkillsTable";
 import ResistsTable from "./ResistsTable";
 import StatsTable from "./StatsTable";

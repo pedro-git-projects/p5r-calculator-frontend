@@ -1,4 +1,4 @@
-import TakeYourTimeGIF from "../assets/take_your_time.gif";
+import TakeYourTimeGIF from "../../assets/take_your_time.gif";
 
 const TakeYourTime: React.FC = () => {
   return (

@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
-import SkillsTable from "../components/SkillsTable";
-import TakeYourTime from "../components/TakeYourTime";
 import SkillEntry from "../types/skills/SkillEntry";
-import Navbar from "../components/Navbar";
 import axios from "axios";
 import "../styles/skillList.css";
+import TakeYourTime from "../components/utils/TakeYourTime";
+import Navbar from "../components/utils/Navbar";
+import SkillsTable from "../components/skills/SkillsTable";
 
 const SkillListScreen: React.FC = () => {
   const [loading, setLoading] = useState(true);

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { useAuth } from "../state/AuthProvider";
 import { useNavigate } from "react-router-dom";
+import { useAuth } from "../../state/AuthProvider";
 
 const DashboardLogin: React.FC = () => {
   const { login } = useAuth();

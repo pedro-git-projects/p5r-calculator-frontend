@@ -3,11 +3,11 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import DetailedPersona from "../types/detailed/DetailedPersona";
 import Recipe from "../types/recipes/Recipe";
-import TakeYourTime from "../components/TakeYourTime";
-import DetailedPersonaTable from "../components/DetaliedPersonaTable";
-import RecipeTable from "../components/RecipesTable";
 import "../styles/details.css";
-import Navbar from "../components/Navbar";
+import TakeYourTime from "../components/utils/TakeYourTime";
+import Navbar from "../components/utils/Navbar";
+import DetailedPersonaTable from "../components/details/DetaliedPersonaTable";
+import RecipeTable from "../components/details/RecipesTable";
 
 const PersonaDetailsScreen: React.FC = () => {
   const { name } = useParams<{ name: string }>();
