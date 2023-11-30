@@ -21,8 +21,9 @@ interface Stats {
   lu: number;
 }
 
-const PostPersonaForm: React.FC = () => {
+const PutPersonaForm: React.FC = () => {
   const { accessToken } = useAuth();
+  const [personaName, setPersonaName] = useState<string>("");
   const [name, setName] = useState<string>("");
   const [inherits, setInherits] = useState<InheritanceUnion>("none");
   const [item, setItem] = useState("");
@@ -67,6 +68,40 @@ const PostPersonaForm: React.FC = () => {
   const [errorMessage, setErrorMessage] = useState<string>("");
   const [isSuccessModalOpen, setIsSuccessModalOpen] = useState(false);
   const [isErrorModalOpen, setIsErrorModalOpen] = useState(false);
+
+  const handleChoosePersona = async () => {
+    try {
+      const response = await axios.get(
+        `http://127.0.0.1:5000/personas/exact/${personaName}`,
+      );
+      const personaData = response.data;
+      setName(personaData.name);
+      setInherits(personaData.inherits);
+      setItem(personaData.item);
+      setItemr(personaData.itemr);
+      setLvl(personaData.lvl);
+      setTrait(personaData.trait);
+      setArcana(personaData.arcana);
+      setRare(personaData.rare);
+      setSpecial(personaData.special);
+      setSkills(
+        // @ts-ignore
+        Object.entries(personaData.skills).map(([name, cost]) => ({
+          name,
+          cost,
+        })),
+      );
+      setStats(personaData.stats);
+      setResists(personaData.resists);
+    } catch (error: any) {
+      console.error("Error fetching persona data:", error);
+      setErrorMessage(
+        error.response?.data?.message || "Error fetching persona data.",
+      );
+      setIsErrorModalOpen(true);
+    }
+  };
+
   const handleSkillChange = (
     index: number,
     skillName: string,
@@ -113,8 +148,8 @@ const PostPersonaForm: React.FC = () => {
         special,
       };
 
-      const response = await axios.post(
-        "http://127.0.0.1:5000/personas",
+      const response = await axios.put(
+        `http://127.0.0.1:5000/personas/${personaName}`,
         personaData,
         {
           headers: {
@@ -124,6 +159,7 @@ const PostPersonaForm: React.FC = () => {
         },
       );
 
+      console.log(name);
       setSuccessMessage(response.data.message);
       setIsSuccessModalOpen(true);
     } catch (error: any) {
@@ -148,8 +184,27 @@ const PostPersonaForm: React.FC = () => {
         />
       )}
 
-      <h2 className="text-2xl font-semibold mb-4">Create Persona</h2>
+      <h2 className="text-2xl font-semibold mb-4">Edit Persona</h2>
       <form onSubmit={handleSubmit}>
+        <div className="mb-4">
+          <label className="block text-gray-700 text-sm font-bold mb-2">
+            Persona Name to Update
+          </label>
+          <input
+            type="text"
+            className="w-full border rounded px-3 py-2"
+            value={personaName}
+            onChange={e => setPersonaName(e.target.value)}
+          />
+          <button
+            type="button"
+            className="bg-blue-500 text-white px-4 py-2 rounded ml-2"
+            onClick={handleChoosePersona}
+          >
+            Choose
+          </button>
+        </div>
+
         <div className="mb-4">
           <label className="block text-gray-700 text-sm font-bold mb-2">
             Name
@@ -383,4 +438,4 @@ const PostPersonaForm: React.FC = () => {
   );
 };
 
-export default PostPersonaForm;
+export default PutPersonaForm;
