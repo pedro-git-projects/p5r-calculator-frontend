@@ -10,6 +10,7 @@ Bem-vindo ao Frontend da API Persona 5 Royal, uma aplicação que oferece uma in
 - [Search](#search)
 - [Detailed](#detailed)
 - [Como Usar](#como-usar)
+- [Avaliação](#avaliação)
 - [Agradecimentos](#agradecimentos)
 
 ## Instruções de Instalação
@@ -77,6 +78,24 @@ Obtenha informações detalhadas sobre cada Persona, incluindo estatísticas, ha
 
 5. **Detailed**: Consulte informações detalhadas sobre cada Persona e descubra as receitas de fusão associadas.
 
+6. Você pode utilizar o usuário administrador cadastrado ao invocar init-db no backend na rota /login para ser redirecionado para o painel do administrados onde operações como criação, alteração e deleção de recursos como Personas e Skills podem ser feitas. 
+
+## Avaliação
+
+| Endpoint (backend)                          | Rota que a consome (frontend) |
+|---------------------------------------------|-------------------------------|
+| /calculator/reverse/{persona_naame}         | /persona-details/             |
+| /calculator/{persona1_name}/{persona2_name} | /recipe-calculator            |
+| /login                                      | /login                        |
+| /personas [GET]                             | /                             |
+| /personas [POST]                            | /admin-panel                  |
+| /personas/detailed/{name}                   | /persona-details/{name}       |
+| /personas/exact/{name}                      | /admin-panel                  |
+| /personas/{name} [DELETE]                   | /admin-panel                  |
+| /personas/{name} [GET]                      | /search                       |
+| /personas/{name} [PUT]                      | /admin-panel                  |
+| /skills [GET]                               | /skill-list                   |
+| /skills [POST]                              | /admin-panel                  |
 
 ## Agradecimentos
 
